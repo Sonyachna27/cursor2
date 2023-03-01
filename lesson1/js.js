@@ -16,4 +16,4 @@ let ceil = Math.ceil(round/100)*100;
 let result = `Максимальна ціна: ${max}. Мінімальна ціна: ${min}. вартість всіх товарів: ${sum}. Ціла частина вартості
 кожного товару між собою округлення в МЕНШУ сторону: ${round}. Сума товарів округлена до сотень: ${ceil} булеве значення: ${truth}. Сума решти: ${rest}. Середнє значення цін: ${sale}. 
 Випадкова знижка: ${randomSale}. Чистий прибуток: ${profit}. `
-console.log(Math.floor(chocolate) + Math.floor(fruits) + Math.floor(sweet));
+console.log(result);
