@@ -1,20 +1,22 @@
             
             
+// let numN = +prompt("Enter the first Number");
+// let numM =  +prompt("Enter the second Number");
+// let sum = 0;
+// const skipNumber = confirm("Do you need to skip even numbers?(yes/ok or no/cancel)");
+
 let numN ;
 let numM ;
 let sum = 0;
-let integerN= Number.isInteger(numN);
-let integerM = Number.isInteger(numM)
-do {
-    numN = +prompt("Enter the first Number");
+// debugger
+do{
+  numN = +prompt("Enter the first Number");
 }
-while (!integerN && numN < 0);
-
-do {
-    numM = +prompt("Enter the second Number");
+while (!(Number.isInteger(numN)) || numN < 0 )
+do{
+  numM = +prompt("Enter the second Number");
 }
-while (!integerM && numN >= numM);
-
+while (!(Number.isInteger(numM)) || numN >= numM) 
 const skipNumber = confirm("Do you need to skip even numbers?(yes/ok or no/cancel)");
                 
                   for (let i = numN; i <= numM; i++ ){
@@ -28,5 +30,5 @@ const skipNumber = confirm("Do you need to skip even numbers?(yes/ok or no/cance
                     }
 
                alert (`Sum of numbers = ${sum}`);
-              
+
  
