@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- // const getMaxDigit = function (number) {
+        //     let str = String(number).split('').map(n => +n).sort(function sor(a,b){
+        //         if(a>=b) return -1;
+        //         if(a<=b) return 1;
+        //         return 0;
+        //         })
+        //         return str.at(0);
+        //      }
+        
+        // console.log(getMaxDigit(152397595482320)) -->
+
+        <!--  const mathPow = function (number,step){
+            let num = Number(number);
+            let byStep = Number(step);
+           
+            if (num === 0 ){
+                return 0;
+            }
+            if (num === 1 || byStep === 0){
+                return 1;
+            }
+            let result = num;
+            for (let i = 1; i < byStep; i++){
+                result*= num;
+            }
+            return result;
+        }
+        console.log(mathPow(2, 0)); -->
+        <!-- const nameUpper = function (string){
+            let str = String(string);
+            return str[0].toUpperCase() + str.slice(1); 
+            
+        }
+        const count = function (sum, tax) {
+            return sum - ((sum*tax)/100);
+        } 
+        console.log(count(100, 19.5));
+         -->
+         <!-- const getRandomNumber = function (N, M){
+            let numberN = +N;
+            let numberM = +M;
+            return Math.floor(Math.random() * (numberN - numberM) + numberM);
+        
+        } -->
+        <!-- // const char_count = function (str, letter) { 
+            //     let string = str.toUpperCase();
+            //     let letters = letter.toUpperCase();
+            //     let result = 0;
+            //  for (let i = 0; i < string.length; i++) {
+            //     if (string.charAt(i) === letters) 
+            //       {
+            //         result += 1;
+            //       }
+            //   }
+            //   return result;
+            // }
+            
+            // console.log(char_count('Асталавіста', 'а')); -->
+            <!-- // function getRandomPassword(num){
+                //     const character = '0123456789';
+                //     const passwordCharacter = 8;
+                //     let password = '';
+                //     if (num > 8 || num < 0){
+                //         return 'Password must be 8 sumbols';
+                //     }
+                //     if (num === undefined){
+                //         for(let i =0; i < passwordCharacter; i++){
+                //         password += character [Math.floor(Math.random() * character.length)];
+                //         }
+                //     } 
+                //     if(num <= passwordCharacter ){
+                //         for(let i = 0; i <= num-1; i++){
+                //             password += character[Math.floor(Math.random() * (character.length))];
+                //             }
+                //     }
+                //     return password;
+                // }
+                // console.log(getRandomPassword(-6)); -->
+
+            <!-- function convertCurrency(str) {
+                const course = 25;
+                let currency = str.toUpperCase();
+                if(currency.includes('UAH')){
+                    let uah = currency.split('UAH');
+                    return (uah[0] / course) + "$";
+                }
+                if(currency.includes('$')){
+                    let usd = currency.split('$');
+                    return (usd[0] * course) + "UAH";
+                } else {
+                    return 'We cannot convert currency'
+                }
+            }
+            console.log(convertCurrency('100uah')); -->
+
+            <!-- function deleteLetters(letter, string){
+                let result = '';
+                for (let ch of string){
+                    if (ch != letter) {
+                        result += ch;
+                      }
+                }
+                return result;
+            }
+            console.log(deleteLetters('a', 'blablabla')); -->
+
+            <!-- function isPalyndrom(target){
+                let direct = '';
+                let reversed = '';
+                let str = target.toUpperCase().replace(/(\s)/g,'');
+                let num = str.replace(/(\d)/g, '');
+                let com = num.replace(/\W/g, '');
+                 for (let ch of com) { 
+                  direct += ch;
+                    reversed = ch + reversed;
+                 }
+                   return direct  === reversed;
+            }
+            console.log(isPalyndrom('я несу гусеня')); -->
+
+    <script src="./script.js"></script>
+</body>
+</html>
