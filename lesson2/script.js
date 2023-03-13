@@ -1,9 +1,6 @@
             
             
-// let numN = +prompt("Enter the first Number");
-// let numM =  +prompt("Enter the second Number");
-// let sum = 0;
-// const skipNumber = confirm("Do you need to skip even numbers?(yes/ok or no/cancel)");
+
 
 let numN ;
 let numM ;
