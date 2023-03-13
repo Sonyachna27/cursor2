@@ -59,7 +59,13 @@ function getRandomMarks(theme){
     return random
 }
 const mark = getRandomMarks(theme);
-console.log(pairs);
-console.log(theme);
-console.log(markOfStudents);
-console.log(mark);
+
+document.writeln(`Функція No1: ${pairs}`)
+        document.write("<br>");
+document.writeln(`Функція No2: ${theme}`)
+        document.write("<br>");
+document.writeln(`Функція No3: ${markOfStudents}`)
+        document.write("<br>");
+document.writeln(`Функція No4: ${mark}`)
+        document.write("<br>");
+
