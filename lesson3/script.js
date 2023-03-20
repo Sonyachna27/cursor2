@@ -173,7 +173,7 @@ function deleteDuplicateLetter(str){
     obj[item]++;
   }
   result = '';
-    for( const i in obj){
+    for(const i in obj){
         if(obj[i] === 1){
             result +=i;
         }
