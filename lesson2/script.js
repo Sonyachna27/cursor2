@@ -1,6 +1,3 @@
-            
-            
-
 
 let numN ;
 let numM ;
