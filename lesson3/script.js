@@ -46,9 +46,7 @@ document.writeln(`Функція No3: ${nameUpper('deni')}`)
 //  Створити функцію, яка вираховує суму, що залишається після
 // оплати податку від зарабітньої плати. (Податок = 18% + 1.5% ->
 // 19.5%).
-const count = function (sum, tax) {
-    return sum - ((sum*tax)/100);
-} 
+const count = (sum, tax) => sum - ((sum*tax)/100);
 
 document.writeln(`Функція No4: ${count(100, 19.5)}`)
  document.write("<br>");
