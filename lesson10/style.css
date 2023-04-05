@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: url(./songs/pexels-shyamal-paul-11073896\ \(1\).jpg);
+    background-size: cover;
+    background-position-x: center;
+}
+.container{
+    max-width: fit-content;
+    margin: 0 auto;
+    padding: 100px;
+}
+button{
+    background: #452638;
+    border: none;
+    color:#192e2e;
+    text-shadow: 0 0 15px #fdfef5;
+}
+button:hover{
+    border: solid 1px #d59725;
+    color:#f1ad25;
+    text-shadow: 0 0 15px #d72c2c;
+    transform: scale(1.2);
+}
+.active{
+    border: solid 1px #d59725;
+    color:#f1ad25;
+    text-shadow: 0 0 15px #d72c2c;
+    transform: scale(1.2);
+}
+.play {
+    width: 50px;
+    height: 50px;
+    margin-right: 25px;
+}
+p{
+    font-size: 2rem;
+    color: bisque;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
