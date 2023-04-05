@@ -15,7 +15,6 @@ document.body.onload = generateBlocks();
            wrapper.append(block);
           }
  }
- 
   function generateBlocksInterval(){
               const blocks = document.getElementsByClassName('block');
                   function getRandom(min, max){
@@ -25,7 +24,6 @@ document.body.onload = generateBlocks();
                   blocks[i].style.backgroundColor = `rgb(${getRandom(0, 255)}, ${getRandom(0, 255)}, ${getRandom(0, 255)})`;
                  }
               }
-
  setInterval(generateBlocksInterval, 1000);
 
  
