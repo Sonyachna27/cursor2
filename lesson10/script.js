@@ -1,20 +1,21 @@
 
-   window.addEventListener('keydown', function(event) { 
-    
-      document.getElementById(`${event.code}`).play();
+   window.addEventListener('keydown', listen) 
 
-  })
-  const panels = document.querySelectorAll('.play');
-const array = Array.from(panels);
-array.forEach((panel) => {
-      panel.addEventListener('keydown', () => {
-        removeActiveClass()
-            panel.classList.add('active')
-      })
+   function listen(event) {
+    const audio = document.querySelector(`audio[data-key="${event.code}"]`);
+    const key = document.querySelector(`.play[data-key="${event.code}"]`);
+    removeActiveClass() 
+    if(!audio) return;
+    setTimeout(() => {
+        audio.play()
+    }, 100); 
+    key.classList.add('active')
+   }
+
+   const play = document.querySelectorAll('.play') 
       function removeActiveClass() {
-        array.forEach(panel => {
-              panel.classList.remove('active')
-          })
-      }
-  })
+        play.forEach(panel => {
+            panel.classList.remove('active')
+        })
+        }
   
