@@ -6,9 +6,7 @@
     const key = document.querySelector(`.play[data-key="${event.code}"]`);
     removeActiveClass() 
     if(!audio) return;
-    setTimeout(() => {
         audio.play()
-    }, 100); 
     key.classList.add('active')
    }
 
