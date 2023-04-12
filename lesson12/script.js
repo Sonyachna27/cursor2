@@ -21,58 +21,46 @@ const btn5 = document.querySelector('.btn5');
 const btn6 = document.querySelector('.btn6');
 
 btn1.addEventListener('click', () =>{
-    getPeopleOfFilms()
     let block = document.createElement('div');
-            block.classList.add('people1');
-            btn1.append(block);
-            
+    block.classList.add('people1');
+    btn1.append(block);
+    getPeopleOfFilms()
+    getCharacters()
 })
-let people = [];
+let peopleOfFilm = []; 
+
+ 
  async function getPeopleOfFilms(){
+    // debugger
     let film = 1;
     const request =  await fetch(`https://swapi.dev/api/films/${film}/`)
     const response = await request.json();
     let json = JSON.stringify(response);   
     let meetup = JSON.parse(json, function(key, value) {
         if (key == 'characters') return (value);
-        return value});
-      return  people.push(meetup.characters);
-    
-    }
-    function getCharacters(people){
-        people.forEach((element) => {
-            console.log(element);
-            fetch(`${element}`)
-            .then((res) => res.json())
-            .then((res)=> {
-             console.log(( res))}
-             
-             )
-            })
-            // arrOfPeople.forEach((el)=>{
-            //  console.log(el)
-            // }
-            // )
-     }
-     
-    //  getCharacters(getPeopleOfFilms)
-    
+       return  value})
+       let people = meetup.characters;
+       for (let i = 0; i < people.length; i++){
+        peopleOfFilm.push(people[i]);
+       }
+        }
 
-    console.log(getCharacters());
+console.log(peopleOfFilm);
+function getCharacters(peopleOfFilm){
+    peopleOfFilm.forEach((element) => {
+        console.log(element)
+      fetch(`${element}`)
+         .then((res)=> json())
+         .then((res)=> {
+            console.log((res))
+             })
+         })
         
-//         let obj = {}
-// for (let item of arrOfPeople){
-//     if(!obj[item]){
-//         obj[item] = 0;
-//       }
-//       obj[item]++;
-//     }
+ }
 
-// console.log(obj);
-    // }
-    // );
 
-        // let peopleName = JSON.parse(json, function(key, value) {
+ 
+        //  let peopleName = JSON.parse(json, function(key, value) {
         //     if (key == "name") return (value);
         //     console.log(value);
         //     return value;
@@ -82,4 +70,3 @@ let people = [];
         //        console.log((res));
         //         })
      
-      
