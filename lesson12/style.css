@@ -1,0 +1,22 @@
+#wrap{
+    width: 250px;
+
+}
+button{
+    cursor: pointer;
+}
+.btn{
+    display: none;
+    width: 25px;
+    background: #333;
+    
+}
+.btn.active {
+    display: flex;
+}
+
+.people1{
+    display: flex;
+    width: 50px;
+    background: #3ba5cf;
+}
