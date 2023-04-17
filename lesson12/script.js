@@ -5,36 +5,26 @@ const charactersBlock = document.querySelector('.characters_block');
 const filmBlock = document.querySelector('.film_block');
 const planetsBlock = document.querySelector('.planets_block');
 const input = document.querySelector('input');
+
  const films = film.addEventListener('click', () => {
-      
-        getFilms()
-       if(planetsFunction || charactFunction) removeGetPlanets() || removeGetCharacters()
+    planetsBlock.innerHTML = '';
+    charactersBlock.innerHTML = '';  
+    getFilms()
+       if(planetsFunction || charactFunction) return (removeGetPlanets() || removeGetCharacters())
     //  if(charactFunction)  removeGetCharacters()
     
        })
  const planetsFunction = planets.addEventListener('click', () => {
         getPlanets()
-         if(films || charactFunction) removeGetFilms() || removeGetCharacters()
-        // if(charactFunction) removeGetCharacters()
-        // if(!getPlanets()) return
+        filmBlock.innerHTML = ''
+        charactersBlock.innerHTML = '';        
             })
   const charactFunction = characters.addEventListener('click', () => {
         getCharacters()
+        filmBlock.innerHTML = '';
+        planetsBlock.innerHTML = '';
         if(planetsFunction || films) removeGetPlanets() || removeGetFilms()
-    //    if(films)  removeGetFilms()
-    //    if(!getCharacters()) return
-            })
-
-
-            function removeGetFilms(){
-                filmBlock.remove()
-              }
-              function removeGetPlanets(){
-                planetsBlock.remove()
-              }
-              function removeGetCharacters(){
-                charactersBlock.remove()
-              }
+         })
 let result = {};
 let resultOfPlanets = {};
 let resultOfCharacters = {};
@@ -120,7 +110,6 @@ async function getFilms(){
             return 
     }
 
-  
   async function getPlanets(){
     const request =  await fetch(`https://swapi.dev/api/planets/`)
     const response = await request.json();
