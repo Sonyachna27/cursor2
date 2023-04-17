@@ -1,38 +1,103 @@
-#wrap{
-    width: 250px;
-
+body{
+    background: url(./img/Star-Wars.jpg) center center/cover no-repeat;
+   height: 100%;
+   width: 100%;
+   background-attachment: fixed;
 }
+
+
 button{
+    display: flex;
+    min-width: 82px;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase ;
+    background:#c77f02;
+    color: #3d0707;
+    border: none;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 5px 10px;
     cursor: pointer;
 }
-.btn{
-    display: none;
-    width: 25px;
-    background: #333;
-    
+button:hover{
+    transform:scale(1.2);
+    transition:  .75s ease-in;
 }
-.btn.active {
+.container{
     display: flex;
+    max-width: 1100px;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
+.btn_wrap{
+    display: flex;
+    /* margin-top: 50px; */
+    top: 50px;
+    left: 30%;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+}
 .people1{
     display: flex;
     width: 50px;
     background: #3ba5cf;
 }
-.character_film{
-    display: none;
+.characters_block,
+.film_block,
+.planets_block{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+
+}
+
+.film_block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    max-width: 922px;
+
 }
 .character_film .film{
     display: flex;
     width: 100px;
     background-color: #3ba5cf;
 }
-img{
-    width: 100px;
+figure{
+   max-width: 360px;
+    padding: 0;
+    background: #3d0707;
+    margin: 15px;
+    padding: 0;
+}
+.characters_block img{
+   width: 300px;
+   /* width: 100%; */
+   height: 250px;
+
+}
+.film_block img{
+   max-width: 300px;
+   width: 100%;
+   height: 280px;
+
+}
+.planets_block img{
+   width: 260px;
+   /* width: 100%; */
+   height: 250px;
 
 }
 figcaption{
     font-size: 15px;
-    color: blue;
+    color: rgb(255, 213, 0);
+   text-align: center;
+    
 }
