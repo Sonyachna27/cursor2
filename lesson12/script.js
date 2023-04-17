@@ -5,27 +5,40 @@ const charactersBlock = document.querySelector('.characters_block');
 const filmBlock = document.querySelector('.film_block');
 const planetsBlock = document.querySelector('.planets_block');
 const input = document.querySelector('input');
-
-    film.addEventListener('click', () => {
+ const films = film.addEventListener('click', () => {
+      
         getFilms()
-        removeGetPlanets()
-        removeGetCharacters()
-        
-            })
-    planets.addEventListener('click', () => {
+       if(planetsFunction || charactFunction) removeGetPlanets() || removeGetCharacters()
+    //  if(charactFunction)  removeGetCharacters()
+    
+       })
+ const planetsFunction = planets.addEventListener('click', () => {
         getPlanets()
-        removeGetFilms()
-        removeGetCharacters()
-        
+         if(films || charactFunction) removeGetFilms() || removeGetCharacters()
+        // if(charactFunction) removeGetCharacters()
+        // if(!getPlanets()) return
             })
-    characters.addEventListener('click', () => {
+  const charactFunction = characters.addEventListener('click', () => {
         getCharacters()
-        removeGetFilms()
-        removeGetPlanets()
+        if(planetsFunction || films) removeGetPlanets() || removeGetFilms()
+    //    if(films)  removeGetFilms()
+    //    if(!getCharacters()) return
             })
+
+
+            function removeGetFilms(){
+                filmBlock.remove()
+              }
+              function removeGetPlanets(){
+                planetsBlock.remove()
+              }
+              function removeGetCharacters(){
+                charactersBlock.remove()
+              }
 let result = {};
 let resultOfPlanets = {};
 let resultOfCharacters = {};
+let resultOfFilm = {};
 let peopleOfFilm = [];
 let objOfFilmsCharact = [];
 let resOfCharact ={};
@@ -35,7 +48,7 @@ let titleInput = '';
 //     getChooseFilms()
 // })
 // async function getChooseFilms(){
-//     // debugger
+    
 //         let film = titleInput;
 //         if(!film) return
 //         const request =  await fetch(`https://swapi.dev/api/films/${film}/`)
@@ -52,23 +65,23 @@ let titleInput = '';
 //               fetch(`${element}`)
 //                  .then((res)=> res.json())
 //                  .then((res)=> {
-//                     objOfFilmsCharact.push( JSON.parse(JSON.stringify(res, ['name', 'gender', 'birth_year'])))
+//                  objOfFilmsCharact.push(JSON.stringify(res, ['name', 'gender', 'birth_year']))
 //                      })
 //                  })
-                
-    
-//       for(let key in objOfFilmsCharact){
+                  
+//       for(let key of peopleOfFilm){
 //         let img = document.createElement('img');
 //         let figcaption = document.createElement('figcaption');
-//         img.src = result[key]
-//         figcaption.innerHTML = `${key}`
+//         img.src = peopleOfFilm[key]
+//         // figcaption.innerHTML = `${key}`
 //         charactersBlock.append(img)
-//         charactersBlock.append(figcaption)
+//         // charactersBlock.append(figcaption)
+        
 //          }
-//     // console.log(res);
 //             return 
 //     }
 async function getFilms(){
+    
     const request =  await fetch(`https://swapi.dev/api/films/`)
     const response = await request.json();
     let json = JSON.stringify(response);   
@@ -97,22 +110,16 @@ async function getFilms(){
       for(let key in result){
         let img = document.createElement('img');
         let figcaption = document.createElement('figcaption');
+        let figure = document.createElement('figure');
         img.src = result[key]
         figcaption.innerHTML = `${key.replace(/([A-Z])/g, ' $1')}`
-        filmBlock.append(img)
-        filmBlock.append(figcaption)
+        filmBlock.append(figure)
+        figure.append(img)
+        figure.append(figcaption)
          }
             return 
     }
-  function removeGetFilms(){
-    filmBlock.remove()
-  }
-  function removeGetPlanets(){
-    planetsBlock.remove()
-  }
-  function removeGetCharacters(){
-    charactersBlock.remove()
-  }
+
   
   async function getPlanets(){
     const request =  await fetch(`https://swapi.dev/api/planets/`)
@@ -146,11 +153,13 @@ async function getFilms(){
       resultOfPlanets.Kamino = `./img/Planets/Kamino.jpg`;
       for(let key in resultOfPlanets){
         let img = document.createElement('img');
+        let figure = document.createElement('figure');
         let figcaption = document.createElement('figcaption');
         img.src = resultOfPlanets[key]
         figcaption.innerHTML = `${key.replace(/([A-Z])/g, ' $1')}`
-        planetsBlock.append(img)
-        planetsBlock.append(figcaption)
+        planetsBlock.append(figure)
+        figure.append(img)
+        figure.append(figcaption)
          }
             return 
     }
@@ -186,268 +195,13 @@ async function getFilms(){
       resultOfCharacters.R5D4 = `./img/characters/R5-D4.jpg`;
       for(let key in resultOfCharacters){
         let img = document.createElement('img');
+        let figure = document.createElement('figure');
         let figcaption = document.createElement('figcaption');
         img.src = resultOfCharacters[key]
         figcaption.innerHTML = `${key.replace(/([A-Z])/g, ' $1')}`
-        charactersBlock.append(img)
-        charactersBlock.append(figcaption)
+        figure.append(img)
+        charactersBlock.append(figure)
+        figure.append(figcaption)
          }
-         console.log(resultOfCharacters);
             return 
     }
-
-// film1
-// {"name":"C-3PO","gender":"n/a","birth_year":"112BBY"}
-// script.js:53 {"name":"Owen Lars","gender":"male","birth_year":"52BBY"}
-// script.js:53 {"name":"Palpatine","gender":"male","birth_year":"82BBY"}
-// script.js:53 {"name":"Yoda","gender":"male","birth_year":"896BBY"}
-// script.js:53 {"name":"R2-D2","gender":"n/a","birth_year":"33BBY"}
-// script.js:53 {"name":"Beru Whitesun lars","gender":"female","birth_year":"47BBY"}
-// script.js:53 {"name":"Boba Fett","gender":"male","birth_year":"31.5BBY"}
-// script.js:53 {"name":"Anakin Skywalker","gender":"male","birth_year":"41.9BBY"}
-// script.js:53 {"name":"Nute Gunray","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Obi-Wan Kenobi","gender":"male","birth_year":"57BBY"}
-// script.js:53 {"name":"Watto","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Padmé Amidala","gender":"female","birth_year":"46BBY"}
-// script.js:53 {"name":"Jar Jar Binks","gender":"male","birth_year":"52BBY"}
-// script.js:53 {"name":"Jek Tono Porkins","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Shmi Skywalker","gender":"female","birth_year":"72BBY"}
-// script.js:53 {"name":"Mace Windu","gender":"male","birth_year":"72BBY"}
-// script.js:53 {"name":"C-3PO","gender":"n/a","birth_year":"112BBY"}
-// script.js:53 {"name":"Ayla Secura","gender":"female","birth_year":"48BBY"}
-// script.js:53 {"name":"R2-D2","gender":"n/a","birth_year":"33BBY"}
-// script.js:53 {"name":"Beru Whitesun lars","gender":"female","birth_year":"47BBY"}
-// script.js:53 {"name":"Owen Lars","gender":"male","birth_year":"52BBY"}
-// script.js:53 {"name":"Obi-Wan Kenobi","gender":"male","birth_year":"57BBY"}
-// script.js:53 {"name":"Raymus Antilles","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Wedge Antilles","gender":"male","birth_year":"21BBY"}
-// script.js:53 {"name":"Han Solo","gender":"male","birth_year":"29BBY"}
-// script.js:53 {"name":"Jabba Desilijic Tiure","gender":"hermaphrodite","birth_year":"600BBY"}
-// script.js:53 {"name":"Greedo","gender":"male","birth_year":"44BBY"}
-// script.js:53 {"name":"Chewbacca","gender":"male","birth_year":"200BBY"}
-// script.js:53 {"name":"Leia Organa","gender":"female","birth_year":"19BBY"}
-// script.js:53 {"name":"R5-D4","gender":"n/a","birth_year":"unknown"}
-// script.js:53 {"name":"Wilhuff Tarkin","gender":"male","birth_year":"64BBY"}
-// script.js:53 {"name":"Biggs Darklighter","gender":"male","birth_year":"24BBY"}
-// script.js:53 {"name":"Darth Vader","gender":"male","birth_year":"41.9BBY"}
-// script.js:53 {"name":"Luke Skywalker","gender":"male","birth_year":"19BBY"}
-// script.js:53 {"name":"Kit Fisto","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Mas Amedda","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Cordé","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Ki-Adi-Mundi","gender":"male","birth_year":"92BBY"}
-// script.js:53 {"name":"Cliegg Lars","gender":"male","birth_year":"82BBY"}
-// script.js:53 {"name":"Plo Koon","gender":"male","birth_year":"22BBY"}
-// script.js:53 {"name":"Poggle the Lesser","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Gregar Typho","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Dormé","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Luminara Unduli","gender":"female","birth_year":"58BBY"}
-// script.js:53 {"name":"Sly Moore","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Shaak Ti","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Barriss Offee","gender":"female","birth_year":"40BBY"}
-// script.js:53 {"name":"San Hill","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Wat Tambor","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Jocasta Nu","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"R4-P17","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Zam Wesell","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Lama Su","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Dexter Jettster","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Taun We","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Jango Fett","gender":"male","birth_year":"66BBY"}
-// script.js:53 {"name":"Dooku","gender":"male","birth_year":"102BBY"}
-// script.js:53 {"name":"Bail Prestor Organa","gender":"male","birth_year":"67BBY"}
-
-// film2
-// {"name":"R2-D2","gender":"n/a","birth_year":"33BBY"}
-// script.js:53 {"name":"Beru Whitesun lars","gender":"female","birth_year":"47BBY"}
-// script.js:53 {"name":"C-3PO","gender":"n/a","birth_year":"112BBY"}
-// script.js:53 {"name":"Obi-Wan Kenobi","gender":"male","birth_year":"57BBY"}
-// script.js:53 {"name":"Yoda","gender":"male","birth_year":"896BBY"}
-// script.js:53 {"name":"Owen Lars","gender":"male","birth_year":"52BBY"}
-// script.js:53 {"name":"Palpatine","gender":"male","birth_year":"82BBY"}
-// script.js:53 {"name":"Anakin Skywalker","gender":"male","birth_year":"41.9BBY"}
-// script.js:53 {"name":"Boba Fett","gender":"male","birth_year":"31.5BBY"}
-// script.js:53 {"name":"Nute Gunray","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Padmé Amidala","gender":"female","birth_year":"46BBY"}
-// script.js:53 {"name":"Ayla Secura","gender":"female","birth_year":"48BBY"}
-// script.js:53 {"name":"Shmi Skywalker","gender":"female","birth_year":"72BBY"}
-// script.js:53 {"name":"Watto","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Jar Jar Binks","gender":"male","birth_year":"52BBY"}
-// script.js:53 {"name":"Beru Whitesun lars","gender":"female","birth_year":"47BBY"}
-// script.js:53 {"name":"Mace Windu","gender":"male","birth_year":"72BBY"}
-// script.js:53 {"name":"C-3PO","gender":"n/a","birth_year":"112BBY"}
-// script.js:53 {"name":"R2-D2","gender":"n/a","birth_year":"33BBY"}
-// script.js:53 {"name":"Yoda","gender":"male","birth_year":"896BBY"}
-// script.js:53 {"name":"Obi-Wan Kenobi","gender":"male","birth_year":"57BBY"}
-// script.js:53 {"name":"Owen Lars","gender":"male","birth_year":"52BBY"}
-// script.js:53 {"name":"Palpatine","gender":"male","birth_year":"82BBY"}
-// script.js:53 {"name":"C-3PO","gender":"n/a","birth_year":"112BBY"}
-// script.js:53 {"name":"Boba Fett","gender":"male","birth_year":"31.5BBY"}
-// script.js:53 {"name":"R2-D2","gender":"n/a","birth_year":"33BBY"}
-// script.js:53 {"name":"Obi-Wan Kenobi","gender":"male","birth_year":"57BBY"}
-// script.js:53 {"name":"Lando Calrissian","gender":"male","birth_year":"31BBY"}
-// script.js:53 {"name":"Lobot","gender":"male","birth_year":"37BBY"}
-// script.js:53 {"name":"IG-88","gender":"none","birth_year":"15BBY"}
-// script.js:53 {"name":"Raymus Antilles","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Bossk","gender":"male","birth_year":"53BBY"}
-// script.js:53 {"name":"Jabba Desilijic Tiure","gender":"hermaphrodite","birth_year":"600BBY"}
-// script.js:53 {"name":"Han Solo","gender":"male","birth_year":"29BBY"}
-// script.js:53 {"name":"Jek Tono Porkins","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Barriss Offee","gender":"female","birth_year":"40BBY"}
-// script.js:53 {"name":"Wedge Antilles","gender":"male","birth_year":"21BBY"}
-// script.js:53 {"name":"Greedo","gender":"male","birth_year":"44BBY"}
-// script.js:53 {"name":"Plo Koon","gender":"male","birth_year":"22BBY"}
-// script.js:53 {"name":"Kit Fisto","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Mas Amedda","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Gregar Typho","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Ki-Adi-Mundi","gender":"male","birth_year":"92BBY"}
-// script.js:53 {"name":"Cliegg Lars","gender":"male","birth_year":"82BBY"}
-// script.js:53 {"name":"Cordé","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Luminara Unduli","gender":"female","birth_year":"58BBY"}
-// script.js:53 {"name":"Poggle the Lesser","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Han Solo","gender":"male","birth_year":"29BBY"}
-// script.js:53 {"name":"Wedge Antilles","gender":"male","birth_year":"21BBY"}
-// script.js:53 {"name":"Dormé","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Dooku","gender":"male","birth_year":"102BBY"}
-// script.js:53 {"name":"Wilhuff Tarkin","gender":"male","birth_year":"64BBY"}
-// script.js:53 {"name":"R5-D4","gender":"n/a","birth_year":"unknown"}
-// script.js:53 {"name":"Biggs Darklighter","gender":"male","birth_year":"24BBY"}
-// script.js:53 {"name":"Leia Organa","gender":"female","birth_year":"19BBY"}
-// script.js:53 {"name":"Chewbacca","gender":"male","birth_year":"200BBY"}
-// script.js:53 {"name":"Darth Vader","gender":"male","birth_year":"41.9BBY"}
-// script.js:53 {"name":"Shaak Ti","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Wat Tambor","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"San Hill","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Luke Skywalker","gender":"male","birth_year":"19BBY"}
-// script.js:53 {"name":"Sly Moore","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Luke Skywalker","gender":"male","birth_year":"19BBY"}
-// script.js:53 {"name":"Chewbacca","gender":"male","birth_year":"200BBY"}
-// script.js:53 {"name":"Darth Vader","gender":"male","birth_year":"41.9BBY"}
-// script.js:53 {"name":"Leia Organa","gender":"female","birth_year":"19BBY"}
-// script.js:53 {"name":"Bail Prestor Organa","gender":"male","birth_year":"67BBY"}
-// script.js:53 {"name":"Dexter Jettster","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Zam Wesell","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Lama Su","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Taun We","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Jango Fett","gender":"male","birth_year":"66BBY"}
-// script.js:53 {"name":"Jocasta Nu","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"R4-P17","gender":"female","birth_year":"unknown"}
-
-// film3
-// {"name":"R2-D2","gender":"n/a","birth_year":"33BBY"}
-// script.js:53 {"name":"Luke Skywalker","gender":"male","birth_year":"19BBY"}
-// script.js:53 {"name":"Darth Vader","gender":"male","birth_year":"41.9BBY"}
-// script.js:53 {"name":"C-3PO","gender":"n/a","birth_year":"112BBY"}
-// script.js:53 {"name":"Leia Organa","gender":"female","birth_year":"19BBY"}
-// script.js:53 {"name":"Chewbacca","gender":"male","birth_year":"200BBY"}
-// script.js:53 {"name":"Obi-Wan Kenobi","gender":"male","birth_year":"57BBY"}
-// script.js:53 {"name":"Han Solo","gender":"male","birth_year":"29BBY"}
-// script.js:53 {"name":"Palpatine","gender":"male","birth_year":"82BBY"}
-// script.js:53 {"name":"Yoda","gender":"male","birth_year":"896BBY"}
-// script.js:53 {"name":"Jabba Desilijic Tiure","gender":"hermaphrodite","birth_year":"600BBY"}
-// script.js:53 {"name":"Wedge Antilles","gender":"male","birth_year":"21BBY"}
-// script.js:53 {"name":"Bib Fortuna","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Nien Nunb","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Wicket Systri Warrick","gender":"male","birth_year":"8BBY"}
-// script.js:53 {"name":"Mon Mothma","gender":"female","birth_year":"48BBY"}
-// script.js:53 {"name":"Arvel Crynyd","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Ackbar","gender":"male","birth_year":"41BBY"}
-// script.js:53 {"name":"Boba Fett","gender":"male","birth_year":"31.5BBY"}
-// script.js:53 {"name":"Lando Calrissian","gender":"male","birth_year":"31BBY"}
-
-// film4
-// {"name":"Luke Skywalker","gender":"male","birth_year":"19BBY"}
-// script.js:53 {"name":"C-3PO","gender":"n/a","birth_year":"112BBY"}
-// script.js:53 {"name":"R2-D2","gender":"n/a","birth_year":"33BBY"}
-// script.js:53 {"name":"Leia Organa","gender":"female","birth_year":"19BBY"}
-// script.js:53 {"name":"Chewbacca","gender":"male","birth_year":"200BBY"}
-// script.js:53 {"name":"Darth Vader","gender":"male","birth_year":"41.9BBY"}
-// script.js:53 {"name":"Jabba Desilijic Tiure","gender":"hermaphrodite","birth_year":"600BBY"}
-// script.js:53 {"name":"Obi-Wan Kenobi","gender":"male","birth_year":"57BBY"}
-// script.js:53 {"name":"Han Solo","gender":"male","birth_year":"29BBY"}
-// script.js:53 {"name":"Yoda","gender":"male","birth_year":"896BBY"}
-// script.js:53 {"name":"Wedge Antilles","gender":"male","birth_year":"21BBY"}
-// script.js:53 {"name":"Palpatine","gender":"male","birth_year":"82BBY"}
-// script.js:53 {"name":"Boba Fett","gender":"male","birth_year":"31.5BBY"}
-// script.js:53 {"name":"Watto","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"R2-D2","gender":"n/a","birth_year":"33BBY"}
-// script.js:53 {"name":"Nute Gunray","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Jabba Desilijic Tiure","gender":"hermaphrodite","birth_year":"600BBY"}
-// script.js:53 {"name":"C-3PO","gender":"n/a","birth_year":"112BBY"}
-// script.js:53 {"name":"Yoda","gender":"male","birth_year":"896BBY"}
-// script.js:53 {"name":"Palpatine","gender":"male","birth_year":"82BBY"}
-// script.js:53 {"name":"Obi-Wan Kenobi","gender":"male","birth_year":"57BBY"}
-// script.js:53 {"name":"Mas Amedda","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Plo Koon","gender":"male","birth_year":"22BBY"}
-// script.js:53 {"name":"Yarael Poof","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Adi Gallia","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Saesee Tiin","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Kit Fisto","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Ki-Adi-Mundi","gender":"male","birth_year":"92BBY"}
-// script.js:53 {"name":"Eeth Koth","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Ben Quadinaros","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Gasgano","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Mace Windu","gender":"male","birth_year":"72BBY"}
-// script.js:53 {"name":"Ric Olié","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Rugor Nass","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Lando Calrissian","gender":"male","birth_year":"31BBY"}
-// script.js:53 {"name":"Ackbar","gender":"male","birth_year":"41BBY"}
-// script.js:53 {"name":"Mon Mothma","gender":"female","birth_year":"48BBY"}
-// script.js:53 {"name":"Arvel Crynyd","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Ratts Tyerel","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Wicket Systri Warrick","gender":"male","birth_year":"8BBY"}
-// script.js:53 {"name":"Ayla Secura","gender":"female","birth_year":"48BBY"}
-// script.js:53 {"name":"Dud Bolt","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Shmi Skywalker","gender":"female","birth_year":"72BBY"}
-// script.js:53 {"name":"Darth Maul","gender":"male","birth_year":"54BBY"}
-// script.js:53 {"name":"Quarsh Panaka","gender":"male","birth_year":"62BBY"}
-// script.js:53 {"name":"Roos Tarpals","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Jar Jar Binks","gender":"male","birth_year":"52BBY"}
-// script.js:53 {"name":"Sebulba","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Padmé Amidala","gender":"female","birth_year":"46BBY"}
-// script.js:53 {"name":"Nien Nunb","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Bib Fortuna","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Anakin Skywalker","gender":"male","birth_year":"41.9BBY"}
-// script.js:53 {"name":"Finis Valorum","gender":"male","birth_year":"91BBY"}
-// script.js:53 {"name":"Qui-Gon Jinn","gender":"male","birth_year":"92BBY"}
-
-//     film5
-//     "name":"C-3PO","gender":"n/a","birth_year":"112BBY"}
-// script.js:53 {"name":"Owen Lars","gender":"male","birth_year":"52BBY"}
-// script.js:53 {"name":"R2-D2","gender":"n/a","birth_year":"33BBY"}
-// script.js:53 {"name":"Beru Whitesun lars","gender":"female","birth_year":"47BBY"}
-// script.js:53 {"name":"Obi-Wan Kenobi","gender":"male","birth_year":"57BBY"}
-// script.js:53 {"name":"Palpatine","gender":"male","birth_year":"82BBY"}
-// script.js:53 {"name":"Anakin Skywalker","gender":"male","birth_year":"41.9BBY"}
-// script.js:53 {"name":"Padmé Amidala","gender":"female","birth_year":"46BBY"}
-// script.js:53 {"name":"Boba Fett","gender":"male","birth_year":"31.5BBY"}
-// script.js:53 {"name":"Yoda","gender":"male","birth_year":"896BBY"}
-// script.js:53 {"name":"Jar Jar Binks","gender":"male","birth_year":"52BBY"}
-// script.js:53 {"name":"Ki-Adi-Mundi","gender":"male","birth_year":"92BBY"}
-// script.js:53 {"name":"Watto","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Mace Windu","gender":"male","birth_year":"72BBY"}
-// script.js:53 {"name":"Nute Gunray","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Shmi Skywalker","gender":"female","birth_year":"72BBY"}
-// script.js:53 {"name":"Ayla Secura","gender":"female","birth_year":"48BBY"}
-// script.js:53 {"name":"Sly Moore","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Wat Tambor","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Shaak Ti","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"R4-P17","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"San Hill","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Jocasta Nu","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Taun We","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Dexter Jettster","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Zam Wesell","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Lama Su","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Jango Fett","gender":"male","birth_year":"66BBY"}
-// script.js:53 {"name":"Bail Prestor Organa","gender":"male","birth_year":"67BBY"}
-// script.js:53 {"name":"Kit Fisto","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Gregar Typho","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Cliegg Lars","gender":"male","birth_year":"82BBY"}
-// script.js:53 {"name":"Cordé","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Plo Koon","gender":"male","birth_year":"22BBY"}
-// script.js:53 {"name":"Mas Amedda","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Luminara Unduli","gender":"female","birth_year":"58BBY"}
-// script.js:53 {"name":"Barriss Offee","gender":"female","birth_year":"40BBY"}
-// script.js:53 {"name":"Dormé","gender":"female","birth_year":"unknown"}
-// script.js:53 {"name":"Poggle the Lesser","gender":"male","birth_year":"unknown"}
-// script.js:53 {"name":"Dooku","gender":"male","birth_year":"102BBY"}
