@@ -1,7 +1,7 @@
 // Створити функцію getMaxDigit(number) – яка отримує будь-яке
 // число та виводить найбільшу цифру в цьому числі.
 
-const getMaxDigit = function (number) {
+export const getMaxDigit = function (number) {
             let str = String(number).split('').map(n => +n).sort(function sor(a,b){
                 if(a>=b) return -1;
                 if(a<=b) return 1;
@@ -10,8 +10,8 @@ const getMaxDigit = function (number) {
                 return str.at(0);
              }
         
-        document.writeln(`Функція No1: ${getMaxDigit(152397595482320)}`)
-        document.write("<br>");
+        console.log(`Функція No1: ${getMaxDigit(152397595482320)}`)
+        // document.write("<br>");
 
         // Створити функцію, яка визначає ступінь числа. Не
         // використовуючи Math.pow та **.
@@ -32,35 +32,33 @@ const getMaxDigit = function (number) {
             return result;
         }
         
- document.writeln(`Функція No2: ${mathPow(2, 0)}`)
- document.write("<br>");
+//  document.writeln(`Функція No2: ${mathPow(2, 0)}`)
+//  document.write("<br>");
 
 //  Створити функцію, яка форматує ім'я, роблячи першу букву великою.
- const nameUpper = function (string){
+export const nameUpper = function (string){
     let str = String(string);
     return str[0].toUpperCase() + str.slice(1); 
 }
-document.writeln(`Функція No3: ${nameUpper('deni')}`)
- document.write("<br>");
+// document.writeln(`Функція No3: ${nameUpper('deni')}`)
+//  document.write("<br>");
 
 //  Створити функцію, яка вираховує суму, що залишається після
 // оплати податку від зарабітньої плати. (Податок = 18% + 1.5% ->
 // 19.5%).
 const count = (sum, tax) => sum - ((sum*tax)/100);
 
-document.writeln(`Функція No4: ${count(100, 19.5)}`)
- document.write("<br>");
-
+//  
 //  Створити функцію, яка повертає випадкове ціле число в
 //  діапазоні від N до M.
-const getRandomNumber = function (N, M){
+export const getRandomNumber = function (N, M){
     let numberN = +N;
     let numberM = +M;
     return Math.floor(Math.random() * (numberN - numberM) + numberM);
 
 }
-document.writeln(`Функція No5: ${getRandomNumber(10, 100)}`)
- document.write("<br>");
+// document.writeln(`Функція No5: ${getRandomNumber(10, 100)}`)
+//  document.write("<br>");
 
 //  Створити функцію, яка рахує скільки разів певна буква
 //  повторюється в слові.
@@ -77,8 +75,8 @@ document.writeln(`Функція No5: ${getRandomNumber(10, 100)}`)
               }
               return result;
             }
-        document.writeln(`Функція No6: ${char_count('Асталавіста', 'а')}`)
-        document.write("<br>");
+        // document.writeln(`Функція No6: ${char_count('Асталавіста', 'а')}`)
+        // document.write("<br>");
 
         // Створіть функцію, яка конвертує долари в гривні та навпаки в
         // залежності від наявності символа $ або UAH в рядку.
@@ -97,14 +95,14 @@ document.writeln(`Функція No5: ${getRandomNumber(10, 100)}`)
                 return 'We cannot convert currency'
             }
         }
-document.writeln(`Функція No7: ${convertCurrency('100uah')}`)
-document.write("<br>");
+// document.writeln(`Функція No7: ${convertCurrency('100uah')}`)
+// document.write("<br>");
 
 // Створіть функцію генерації випадкового паролю (тільки числа),
 // довжина встановлюється користувачем або по замовчуванню = 8
 // символам.
 
-    function getRandomPassword(num){
+ export function getRandomPassword(num){
         const character = '0123456789';
         const passwordCharacter = 8;
         let password = '';
@@ -124,8 +122,8 @@ document.write("<br>");
         return password;
     }
 
-    document.writeln(`Функція No8: ${getRandomPassword(6)}`)
-    document.write("<br>");
+    // document.writeln(`Функція No8: ${getRandomPassword(6)}`)
+    // document.write("<br>");
 
     // Створіть функцію, яка видаляє всі букви з речення.
     function deleteLetters(letter, string){
@@ -137,8 +135,8 @@ document.write("<br>");
         }
         return result;
     }
-    document.writeln(`Функція No9: ${deleteLetters('a', 'blablabla')}`)
-    document.write("<br>");
+    // document.writeln(`Функція No9: ${deleteLetters('a', 'blablabla')}`)
+    // document.write("<br>");
 
     // Створіть функцію, яка перевіряє, чи є слово паліндромом.
 
@@ -154,8 +152,8 @@ document.write("<br>");
          }
            return direct  === reversed;
     }
-document.writeln(`Функція No10: ${isPalyndrom('я несу гусеня')}`)
-    document.write("<br>");
+// document.writeln(`Функція No10: ${isPalyndrom('я несу гусеня')}`)
+//     document.write("<br>");
 
     // Створіть функцію, яка видалить з речення букви, які
     // зустрічаються більше 1 разу.
@@ -180,5 +178,5 @@ function deleteDuplicateLetter(str){
   return result.toLowerCase()
        }
 
-document.writeln(`Функція No11: ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}`)
-    document.write("<br>");
+// document.writeln(`Функція No11: ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}`)
+//     document.write("<br>");

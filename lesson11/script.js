@@ -1,4 +1,4 @@
-async function getRandomChinese (length) {
+export async function getRandomChinese (length) {
     let sign = (Date.now() + '').split('').slice(-5).join('');
     const res = String.fromCharCode(sign);
     let result = '';

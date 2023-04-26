@@ -2,7 +2,6 @@
 let numN ;
 let numM ;
 let sum = 0;
-// debugger
 do{
   numN = +prompt("Enter the first Number");
 }
@@ -12,17 +11,19 @@ do{
 }
 while (!(Number.isInteger(numM)) || numN >= numM) 
 const skipNumber = confirm("Do you need to skip even numbers?(yes/ok or no/cancel)");
-                
-                  for (let i = numN; i <= numM; i++ ){
-                    if (skipNumber === true){
-                      sum +=i;
-                    }
-                    else{
-                      if (i % 2 === 0) continue
-                      sum +=i;
+              export function lesson2(){
+                for (let i = numN; i <= numM; i++ ){
+                  if (skipNumber === true){
+                    sum +=i;
                   }
-                    }
+                  else{
+                    if (i % 2 === 0) continue
+                    sum +=i;
+                }
+                  }
 
-               alert (`Sum of numbers = ${sum}`);
+             alert (`Sum of numbers = ${sum}`);
+              }  
+                  
 
  
