@@ -1,7 +1,7 @@
 
    window.addEventListener('keydown', listen) 
 
-   function listen(event) {
+ export  function listen(event) {
     const audio = document.querySelector(`audio[data-key="${event.code}"]`);
     const key = document.querySelector(`.play[data-key="${event.code}"]`);
     removeActiveClass() 
@@ -10,8 +10,8 @@
     key.classList.add('active')
    }
 
-   const play = document.querySelectorAll('.play') 
-      function removeActiveClass() {
+export const play = document.querySelectorAll('.play') 
+ export    function removeActiveClass() {
         play.forEach(panel => {
             panel.classList.remove('active')
         })

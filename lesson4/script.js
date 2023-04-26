@@ -2,7 +2,7 @@ const students = ["Олександр", "Ігор", "Олена", "Іра", "О�
 const themes = ["Диференційне рівняння", "Теорія автоматів", "Алгоритми і структури даних"];
 const marks = [4, 5, 5, 3, 4, 5];
 
-function getPairs(students) {
+export function getPairs(students) {
     const coupleStudents = students.map((x) => x);
         const male = [];
         const female = [];
@@ -60,12 +60,12 @@ function getRandomMarks(theme){
 }
 const mark = getRandomMarks(theme);
 
-document.writeln(`Функція No1: ${pairs}`)
-        document.write("<br>");
-document.writeln(`Функція No2: ${theme}`)
-        document.write("<br>");
-document.writeln(`Функція No3: ${markOfStudents}`)
-        document.write("<br>");
-document.writeln(`Функція No4: ${mark}`)
-        document.write("<br>");
+// document.writeln(`Функція No1: ${pairs}`)
+//         document.write("<br>");
+// document.writeln(`Функція No2: ${theme}`)
+//         document.write("<br>");
+// document.writeln(`Функція No3: ${markOfStudents}`)
+//         document.write("<br>");
+// document.writeln(`Функція No4: ${mark}`)
+//         document.write("<br>");
 

@@ -1,3 +1,4 @@
+ 
 let chocolate = 15.678;
 let fruits = 123.965;
 let sweet = 90.2345;
@@ -13,7 +14,9 @@ let randomSum = (sum - (sum*randomSale)/100).toFixed(2);
 let profit = (randomSum - (sum/2)).toFixed(2);
 let truth = Boolean(round%2);
 let ceil = Math.ceil(round/100)*100;
-let result = `Максимальна ціна: ${max}. Мінімальна ціна: ${min}. вартість всіх товарів: ${sum}. Ціла частина вартості
+function lesson1(){
+    let result =  `Максимальна ціна: ${max}. Мінімальна ціна: ${min}. вартість всіх товарів: ${sum}. Ціла частина вартості
 кожного товару між собою округлення в МЕНШУ сторону: ${round}. Сума товарів округлена до сотень: ${ceil} булеве значення: ${truth}. Сума решти: ${rest}. Середнє значення цін: ${sale}. 
 Випадкова знижка: ${randomSale}. Чистий прибуток: ${profit}. `
-console.log(result);
+console.log(result)}
+export {sum};

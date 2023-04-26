@@ -36,8 +36,8 @@ const students = [
     }
         return subject
    }
-   document.writeln(`Функція No1: ${getSubjects(students[2])}`)
-                document.write("<br>"); 
+//    document.writeln(`Функція No1: ${getSubjects(students[2])}`)
+//                 document.write("<br>"); 
    
    const getAverageMark = (students) => {
     const entry = Object.values(students.subjects).join('').replace(/,/g,'').split('').map(num => +num);
@@ -45,8 +45,8 @@ const students = [
     return (sum / entry.length).toFixed(2)
    }
    
-   document.writeln(`Функція No2: ${getAverageMark(students[0])}`)
-document.write("<br>"); 
+//    document.writeln(`Функція No2: ${getAverageMark(students[0])}`)
+// document.write("<br>"); 
 
 const getStudentInfo = (students) =>{
     let entry = Object.entries(students);
@@ -60,17 +60,17 @@ const getStudentInfo = (students) =>{
     let mark = result.push(Array('AverageMark', AverageMark)); 
 return Array(Object.fromEntries(result));
 }
-document.writeln(`Функція No3: ${getStudentInfo(students[0])}`)
-document.write("<br>"); 
+// document.writeln(`Функція No3: ${getStudentInfo(students[0])}`)
+// document.write("<br>"); 
 
 const getStudentsNames = (students) => {
     let keys =  Object.keys(...students).sort((a,b)=> a.localeCompare(b));
     return keys;
 }
-document.writeln(`Функція No4: ${getStudentsNames(students)}`)
-document.write("<br>"); 
+// document.writeln(`Функція No4: ${getStudentsNames(students)}`)
+// document.write("<br>"); 
 
-const getBestStudent = (students) =>{
+export const getBestStudent = (students) =>{
     const student = students;
     const modal = students.map((n) => Object.entries(n));
    let res = [];
@@ -95,8 +95,8 @@ const getBestStudent = (students) =>{
        })
     return best[0][0]; 
 }
-document.writeln(`Функція No5: ${getBestStudent(students)}`)
-document.write("<br>"); 
+// document.writeln(`Функція No5: ${getBestStudent(students)}`)
+// document.write("<br>"); 
 const calculateWordLetters = (string) =>{
     let obj = {}
     let str = string.split('').forEach(function(s) {
@@ -105,5 +105,5 @@ const calculateWordLetters = (string) =>{
      return obj
 }
 
-document.writeln(`Функція No6: ${calculateWordLetters('calculateWordLetters')}`)
-document.write("<br>"); 
+// document.writeln(`Функція No6: ${calculateWordLetters('calculateWordLetters')}`)
+// document.write("<br>"); 

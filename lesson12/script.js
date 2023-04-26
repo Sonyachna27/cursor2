@@ -6,7 +6,7 @@ const filmBlock = document.querySelector('.film_block');
 const planetsBlock = document.querySelector('.planets_block');
 const input = document.querySelector('input');
 
- const films = film.addEventListener('click', () => {
+export const films = film.addEventListener('click', () => {
     planetsBlock.innerHTML = '';
     charactersBlock.innerHTML = '';  
     getFilms()
@@ -14,12 +14,12 @@ const input = document.querySelector('input');
     //  if(charactFunction)  removeGetCharacters()
     
        })
- const planetsFunction = planets.addEventListener('click', () => {
+export const planetsFunction = planets.addEventListener('click', () => {
         getPlanets()
         filmBlock.innerHTML = ''
         charactersBlock.innerHTML = '';        
             })
-  const charactFunction = characters.addEventListener('click', () => {
+export  const charactFunction = characters.addEventListener('click', () => {
         getCharacters()
         filmBlock.innerHTML = '';
         planetsBlock.innerHTML = '';

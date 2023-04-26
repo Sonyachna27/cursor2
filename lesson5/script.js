@@ -10,8 +10,8 @@ function getRandomArray(length, min, max){
     }
             return random  
 }
-document.writeln(`Функція No1: ${getRandomArray(15, 1, 100)}`)
-        document.write("<br>"); 
+// document.writeln(`Функція No1: ${getRandomArray(15, 1, 100)}`)
+//         document.write("<br>"); 
 
 function getModa(...numbers){
     let obj = {}
@@ -36,8 +36,8 @@ function getModa(...numbers){
   return result.join('')
 }
 
-document.writeln(`Функція No2: ${getModa(6, 2, 55, 11, 78, 2, 55, 11, 11, 11, 11, 77, 57, 87, 23, 2, 56, 3, 2)}`)
-        document.write("<br>"); 
+// document.writeln(`Функція No2: ${getModa(6, 2, 55, 11, 78, 2, 55, 11, 11, 11, 11, 77, 57, 87, 23, 2, 56, 3, 2)}`)
+//         document.write("<br>"); 
 
 
 function getAverage(...numbers){
@@ -46,8 +46,8 @@ function getAverage(...numbers){
     
  return (res / number.length).toFixed(2);
 }
-document.writeln(`Функція No3: ${getAverage(6, 2, 55, 11, 78, 2, 55, 77, 100, 87, 23, 2, 56, 3, 2)}`)
-        document.write("<br>"); 
+// document.writeln(`Функція No3: ${getAverage(6, 2, 55, 11, 78, 2, 55, 77, 100, 87, 23, 2, 56, 3, 2)}`)
+//         document.write("<br>"); 
 
 
 function getMedian(...numbers) {
@@ -69,27 +69,27 @@ function getMedian(...numbers) {
 
 }
 
-document.writeln(`Функція No4: ${getMedian(1, 2, 3, 15, 5, 6, 8)}`)
-        document.write("<br>"); 
+// document.writeln(`Функція No4: ${getMedian(1, 2, 3, 15, 5, 6, 8)}`)
+//         document.write("<br>"); 
 
 const filterEvenNumbers = (...numbers) => numbers.filter(item => item % 2 !=0);
-document.writeln(`Функція No5: ${filterEvenNumbers(1, 2, 3, 4, 5, 6)}`)
-        document.write("<br>"); 
+// document.writeln(`Функція No5: ${filterEvenNumbers(1, 2, 3, 4, 5, 6)}`)
+//         document.write("<br>"); 
 const countPositiveNumbers = (...numbers) => (numbers.filter(item => item > 0)).length
-document.writeln(`Функція No6: ${countPositiveNumbers(1, -2, 3, -4, -5, 6)}`)
-        document.write("<br>"); 
+// document.writeln(`Функція No6: ${countPositiveNumbers(1, -2, 3, -4, -5, 6)}`)
+//         document.write("<br>"); 
 const getDividedByFive = (...numbers) => numbers.filter(item => item % 5 === 0);
-       document.writeln(`Функція No7: ${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 25, 77, 57, 87, 23, 2, 56, 3, 2)}`)
-                document.write("<br>"); 
+      //  document.writeln(`Функція No7: ${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 25, 77, 57, 87, 23, 2, 56, 3, 2)}`)
+      //           document.write("<br>"); 
 
-function replaceBadWords(string){
+export function replaceBadWords(string){
     let arrOfBadWords = string.split(' ');
     let badWords = /(shit|fuck)/gi;
    let str = arrOfBadWords.map((n) => n.replaceAll(badWords, '****')).join(' ');
     return str;
 }
-document.writeln(`Функція No8: ${replaceBadWords("Are you man fucking kidding?")}`)
-                document.write("<br>"); 
+// document.writeln(`Функція No8: ${replaceBadWords("Are you man fucking kidding?")}`)
+//                 document.write("<br>"); 
 
 
 function divideByThree(word){
@@ -110,8 +110,8 @@ function divideByThree(word){
              }
              return result;
         }
-        document.writeln(`Функція No9: ${divideByThree('love')}`)
-                document.write("<br>"); 
+        // document.writeln(`Функція No9: ${divideByThree('love')}`)
+        //         document.write("<br>"); 
 
 const generateCombinations = (word) =>{
    let string = word.substring(0,10);
@@ -147,6 +147,6 @@ const generateCombinations = (word) =>{
   return noRepeatPerms;
 }
 
-document.writeln(`Функція No10: ${generateCombinations('love')}`)
-                document.write("<br>");
+// document.writeln(`Функція No10: ${generateCombinations('love')}`)
+//                 document.write("<br>");
 

@@ -18,7 +18,7 @@ function getTotalTaxes (country) {
 }
 console.log(getTotalTaxes.call(litva));
 
-function getMySalary(country) {
+export function getMySalary(country) {
     let res = {}
     res.salary = Math.floor(Math.random() * (2000 - 1500) + 1500);
     res.taxes = res.salary * country.tax;
