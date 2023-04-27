@@ -21,11 +21,11 @@ const up = document.querySelector('.up');
 const text = document.querySelector('.text')
 
 export function* newFontGenerator(size){
-    basicFontSize = size;
+    
     for (let i = 0; i < Infinity; i++){
-        let fontSizeBtn = yield basicFontSize;
-        if(fontSizeBtn === 'down') basicFontSize -= 2;
-        if(fontSizeBtn === 'up')  basicFontSize += 2;
+        let fontSizeBtn = yield size;
+        if(fontSizeBtn === 'down') size -= 2;
+        if(fontSizeBtn === 'up')  size += 2;
     }
     }
 const fontGenerator = newFontGenerator(14);
