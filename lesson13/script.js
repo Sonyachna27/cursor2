@@ -21,7 +21,6 @@ const up = document.querySelector('.up');
 const text = document.querySelector('.text')
 
 export function* newFontGenerator(size){
-    
     for (let i = 0; i < Infinity; i++){
         let fontSizeBtn = yield size;
         if(fontSizeBtn === 'down') size -= 2;
